@@ -39,7 +39,7 @@ public class UserInfo extends UserVo {
             String email = sc.next();
             String pattern = "^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$";
             if (Pattern.matches(pattern, email)) {
-                System.out.println("올바른 이메일 형식입니다. 메인 메뉴로 돌아갑니다.");
+                System.out.println("회원가입을 환영합니다.");
                 user.setEmail(email);
                 flag = false;
             } else {
@@ -64,8 +64,13 @@ public class UserInfo extends UserVo {
         }
         if (cnt == 0) {
             System.out.println("아이디 또는 비밀번호를 잘못 입력하셨습니다.");
-            System.out.println("다시 입력하여 주십시오.");
-            signIn();
+            System.out.println("다시 입력하여 주십시오. 종료하시려면 q를 누르십시오.");
+            String s = sc.next();
+            if(s.equals("q"))
+                System.out.println("메인 메뉴로 돌아갑니다");
+            else {
+                signIn();
+            }
         }
 
     }
@@ -86,8 +91,13 @@ public class UserInfo extends UserVo {
         }
         if (cnt == 0) {
             System.out.println("아이디 또는 비밀번호를 잘못 입력하셨습니다.");
-            System.out.println("다시 입력하여 주십시오.");
-            modifyPassword();
+            System.out.println("다시 입력하여 주십시오. 종료하시려면 q를 누르십시오.");
+            String s = sc.next();
+            if(s.equals("q"))
+                System.out.println("메인 메뉴로 돌아갑니다");
+            else {
+                modifyPassword();
+            }
         }
     }
 
@@ -103,8 +113,14 @@ public class UserInfo extends UserVo {
             }
         }
         if(cnt==0){
-            System.out.println("잘못 입력하셨습니다. 다시 입력하십시오.");
-            printUserInfo(id);
+            System.out.println("잘못 입력하셨습니다.");
+            System.out.println("다시 입력하여 주십시오. 종료하시려면 q를 누르십시오.");
+            String s = sc.next();
+            if(s.equals("q"))
+                System.out.println("메인 메뉴로 돌아갑니다");
+            else {
+                printUserInfo(id);
+            }
         }
     }
 

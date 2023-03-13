@@ -2,18 +2,11 @@ package user;
 
 public class UserVo {
     private String name;
-    private String created_date;
+//    private String created_date;
     private String id;
     private String password;
     private String email;
 
-    public String getCreated_date() {
-        return created_date;
-    }
-
-    public void setCreated_date(String created_date) {
-        this.created_date = created_date;
-    }
 
     public String getId() {
         return id;

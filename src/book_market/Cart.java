@@ -1,11 +1,10 @@
 package book_market;
 
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-public class Cart extends CartVo implements CartMenu {
-    ArrayList<CartVo> cartList = new ArrayList<>();
+public class Cart implements CartMenu {
+    private ArrayList<CartVo> cartList = new ArrayList<>();
     Scanner sc = new Scanner(System.in);
 
     //2. 장바구니 목록 보기
@@ -26,9 +25,10 @@ public class Cart extends CartVo implements CartMenu {
     //4. 장바구니 항목추가
     @Override
     public ArrayList<CartVo> menuCartAddItem() {
-        CartVo cart = new Cart();
+        CartVo cart = new CartVo();
         //책, 가격, 개수 등록
         System.out.print("이름 : ");
+
         String book = sc.nextLine();
         cart.setBook(book);
 
@@ -43,9 +43,9 @@ public class Cart extends CartVo implements CartMenu {
         cartList.add(cart);
 
         System.out.print("추가 등록 하시겠습니까? 계속 진행하시려면 아무키나 누르십시오. 종료하시려면 n: ");
-        String c = sc.nextLine();
-        sc.close();
+        String c = sc.next();
         if(!c.equals("n")){
+            sc.nextLine();
             menuCartAddItem();
         }
 
@@ -66,7 +66,6 @@ public class Cart extends CartVo implements CartMenu {
                 System.out.printf("수정 완료! 수정 전 수량: %d -> 수정 후 수량: %d\n",pre_count,count);
                 System.out.print("추가로 작업 하시겠습니까? 계속 진행하시려면 아무키나 누르십시오. 종료하시려면 n");
                 String c = sc.next();
-                sc.close();
                 if (!c.equals("n")){
                     menuCartRemoveItemCount(cartList);
                 }
@@ -97,9 +96,11 @@ public class Cart extends CartVo implements CartMenu {
             }
         }
     }
+      /*  enum Paytype{CARD,CASH,KAKAOPAY}; //결제 타입 정의
+        String paytype;
+        */
 
     @Override
     public void menuCartBill() {
-
     }
 }

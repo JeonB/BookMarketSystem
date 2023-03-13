@@ -24,7 +24,7 @@ class CartTest {
 
     @Test
     void menuCartAddItem() {
-        CartVo cart = new Cart();
+        CartVo cart = new CartVo();
         //책, 가격, 개수 등록
         System.out.print("이름 : ");
         String book = sc.next();

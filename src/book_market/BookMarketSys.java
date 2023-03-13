@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BookMarketSys extends UserInfo{
+    static ArrayList<CartVo> cartList = new ArrayList<>();
     public static void showMenu(){
         System.out.println("\n===================================================");
         System.out.println("1. 고객 정보 확인\t\t    4. 장바구니에 항목 추가");
@@ -20,7 +21,7 @@ public class BookMarketSys extends UserInfo{
 
     public static void choiceMenu(){
         System.out.print("메뉴 선택: ");
-        ArrayList<CartVo> cartList = new ArrayList<>();
+
         Cart cart = new Cart();
         int i = sc.nextInt();
         switch (i){
